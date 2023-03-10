@@ -10,7 +10,12 @@ const CustomHeader = ({ chat }) => {
         </div>
         <div className='flexbetween'>
            <PhoneIcon className='icon-phone' /> 
+           {chat.description !== "⬅️ ⬅️ ⬅️" ? (
            <p className='header-text'>{chat.description}</p>
+           ) : (
+            <p className='header-text'>No chat selected!</p>
+           )
+            }
         </div>
     </div>
   )
