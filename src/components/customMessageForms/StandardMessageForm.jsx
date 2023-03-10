@@ -10,7 +10,16 @@ const StandardMessageForm = ({ props, activeChat }) => {
     const [attachment, setAttachment] = useState("")
     const [preview, setPreview] = useState("")
 
-    const handleChange = (e) => setMessage(e.target.value)
+    const handleChange = (e) => {
+        setMessage(e.target.value)
+    }
+
+    const handleKeyPress = (e) => {
+        if (e.key === 'Enter') {
+            handleSubmit();
+        }
+    };
+
 
     const handleSubmit = async () => {
         const date = new Date()
@@ -51,13 +60,14 @@ const StandardMessageForm = ({ props, activeChat }) => {
             )}
             <div className='message-form'>
                 <div className='message-form-input-container'>
-                    <input
-                        className='message-form-input'
-                        type="text"
-                        value={message}
-                        onChange={handleChange}
-                        placeholder="Send a message"
-                    />
+                        <input
+                            className='message-form-input'
+                            type="text"
+                            value={message}
+                            onChange={handleChange}
+                            placeholder="Send a message"
+                            onKeyPress={handleKeyPress}
+                        />
                 </div>
                 <div className='message-form-icons'>
                     <Dropzone
