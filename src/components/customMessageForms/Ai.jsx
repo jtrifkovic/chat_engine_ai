@@ -1,8 +1,7 @@
-import { useState } from 'react'
-import MessageFormUi from './MessageFormUi'
+import { useState } from "react"
+import MessageFormUi from "./MessageFormUi"
 
-
-const StandardMessageForm = ({ props, activeChat }) => {
+const Ai = ({ props, activeChat}) => {
 
     const [message, setMessage] = useState("")
     const [attachment, setAttachment] = useState("")
@@ -35,16 +34,17 @@ const StandardMessageForm = ({ props, activeChat }) => {
         props.onSubmit(form);
         setMessage("");
         setAttachment("");
-      };
-    return (
-        <MessageFormUi
-            setAttachment={setAttachment}
-            message={message}
-            handleChange={handleChange}
-            handleKeyPress={handleKeyPress}
-            handleSubmit={handleSubmit}
-         />
-    )
+      }
+
+  return (
+    <MessageFormUi
+    setAttachment={setAttachment}
+    message={message}
+    handleChange={handleChange}
+    handleKeyPress={handleKeyPress}
+    handleSubmit={handleSubmit}
+ />
+  )
 }
 
-export default StandardMessageForm
+export default Ai
